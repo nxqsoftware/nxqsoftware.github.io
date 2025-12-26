@@ -2,115 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NXQSoftware Programs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXQQuickShop - Purchase</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f6f8;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #1E88E5;
-            color: white;
-            padding: 20px;
             text-align: center;
+            padding: 40px;
         }
-        header img {
-            max-width: 150px;
-            display: block;
-            margin: 0 auto 10px;
-        }
-        nav {
-            background-color: #1565C0;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        section h2 {
-            font-size: 28px;
+        h1 {
             color: #1E88E5;
-            margin-bottom: 20px;
         }
-        .program {
-            background-color: #e3f2fd;
-            border-radius: 8px;
-            padding: 30px;
-            display: inline-block;
+        .button-container {
             margin: 20px auto;
-            max-width: 400px;
+            width: 300px;
         }
-        button {
-            background-color: #1E88E5;
-            color: white;
-            border: none;
-            padding: 12px 25px;
+        p {
             font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
         }
-        button:hover {
-            background-color: #1565C0;
-        }
-        footer {
-            background-color: #1E88E5;
-            color: white;
-            text-align: center;
-            padding: 20px;
+        .footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: gray;
         }
     </style>
 </head>
 <body>
+    <h1>NXQQuickShop</h1>
+    <p>Professional business software solutions.</p>
 
-<header>
-    <img src="NXQSoftwareLogo.png" alt="NXQSoftware Logo">
-    <h1>NXQSoftware Programs</h1>
-</header>
+    <h2>Purchase Options</h2>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="#programs">Programs</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <div class="button-container">
+        <!-- Subscription Button -->
+        <form name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post">
+            <input required type="hidden" name="cmd" value="_paynow">
+            <input required type="hidden" name="receiver" pattern="[0-9]" value="22909855">
+            <input type="hidden" name="return_url" value="https://nxqsoftware.github.io/programs.html">
+            <input type="hidden" name="cancel_url" value="https://nxqsoftware.github.io/programs.html">
+            <input required type="hidden" name="amount" value="150">
+            <input required type="hidden" name="item_name" maxlength="255" value="NXQQuickShop Subscription">
+            <input type="hidden" name="item_description" maxlength="255" value="Monthly subscription to NXQQuickShop with all modules enabled.">
+            <input required type="hidden" name="subscription_type" pattern="1" value="1">
+            <input type="hidden" name="recurring_amount" value="150">
+            <input required type="hidden" name="cycles" pattern="[0-9]" value="0">
+            <input required type="hidden" name="frequency" pattern="[0-9]" value="3">
+            <table>
+                <tr>
+                    <td colspan=2 align=center>
+                        <input type="image" src="https://my.payfast.io/images/buttons/Subscribe/Primary-Small-Subscribe.png" alt="Subscribe" title="Subscribe with Payfast">
+                    </td>
+                </tr>
+            </table>
+        </form>
 
-<section id="programs">
-    <h2>Our Programs</h2>
+        <br>
 
-    <div class="program">
-        <h3>NXQQuickShop</h3>
-        <p>All-in-one software for small shops and takeaways. Manage stock, POS, accounting, suppliers, and more.</p>
-        <p>Subscription: R150/month</p>
-        <p>Full once-off license: R4,500</p>
-        <button onclick="window.location.href='https://www.payfast.co.za/eng/process?receiver=YOUR_PAYFAST_ID&item_name=NXQQuickShop Subscription'">Buy Subscription</button>
-        <button onclick="window.location.href='https://www.payfast.co.za/eng/process?receiver=YOUR_PAYFAST_ID&item_name=NXQQuickShop Full License'">Buy Full License</button>
+        <!-- Full License Button -->
+        <form name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post">
+            <input required type="hidden" name="cmd" value="_paynow">
+            <input required type="hidden" name="receiver" pattern="[0-9]" value="22909855">
+            <input type="hidden" name="return_url" value="https://nxqsoftware.github.io/programs.html">
+            <input type="hidden" name="cancel_url" value="https://nxqsoftware.github.io/programs.html">
+            <input required type="hidden" name="amount" value="4500">
+            <input required type="hidden" name="item_name" maxlength="255" value="NXQQuickShop Full License">
+            <input type="hidden" name="item_description" maxlength="255" value="One-time purchase of NXQQuickShop full program with lifetime access.">
+            <table>
+                <tr>
+                    <td colspan=2 align=center>
+                        <input type="image" src="https://my.payfast.io/images/buttons/BuyNow/Primary-Small-BuyNow.png" alt="Buy Now" title="Buy Now with Payfast">
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 
-    <!-- Later you can duplicate this block for other programs -->
-</section>
-
-<section id="contact">
-    <h2>Contact NXQSoftware</h2>
-    <p>Reach us via the contact form:</p>
-    <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd-bByeZotzjb5vofDFVCmYyV_0LzCDdvXoqc_pXRAzyU9i_A/viewform?usp=publish-editor', '_blank')">Open Contact Form</button>
-</section>
-
-<footer>
-    Developed by NXQSoftware © 2026 | Version 1.0
-</footer>
-
+    <div class="footer">
+        Developed by NXQSoftware 2026 | Version 1.0
+    </div>
 </body>
 </html>
