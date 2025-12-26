@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NXQSoftware Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1E88E5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            max-width: 150px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        nav {
+            background-color: #1565C0;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        section h2 {
+            font-size: 28px;
+            color: #1E88E5;
+            margin-bottom: 20px;
+        }
+        .program {
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            padding: 30px;
+            display: inline-block;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        button {
+            background-color: #1E88E5;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #1565C0;
+        }
+        footer {
+            background-color: #1E88E5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="NXQSoftwareLogo.png" alt="NXQSoftware Logo">
+    <h1>NXQSoftware Programs</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="#programs">Programs</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="programs">
+    <h2>Our Programs</h2>
+
+    <div class="program">
+        <h3>NXQQuickShop</h3>
+        <p>All-in-one software for small shops and takeaways. Manage stock, POS, accounting, suppliers, and more.</p>
+        <p>Subscription: R150/month</p>
+        <p>Full once-off license: R4,500</p>
+        <button onclick="window.location.href='https://www.payfast.co.za/eng/process?receiver=YOUR_PAYFAST_ID&item_name=NXQQuickShop Subscription'">Buy Subscription</button>
+        <button onclick="window.location.href='https://www.payfast.co.za/eng/process?receiver=YOUR_PAYFAST_ID&item_name=NXQQuickShop Full License'">Buy Full License</button>
+    </div>
+
+    <!-- Later you can duplicate this block for other programs -->
+</section>
+
+<section id="contact">
+    <h2>Contact NXQSoftware</h2>
+    <p>Reach us via the contact form:</p>
+    <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd-bByeZotzjb5vofDFVCmYyV_0LzCDdvXoqc_pXRAzyU9i_A/viewform?usp=publish-editor', '_blank')">Open Contact Form</button>
+</section>
+
+<footer>
+    Developed by NXQSoftware © 2026 | Version 1.0
+</footer>
+
+</body>
+</html>
