@@ -2,91 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NXQQuickShop - Purchase</title>
+    <title>NXQQuickShop - Programs</title>
+    <link rel="stylesheet" href="style.css"> <!-- Optional styling -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            text-align: center;
-            padding: 40px;
-        }
-        h1 {
-            color: #1E88E5;
-        }
-        .logo {
-            width: 200px; /* adjust size */
-            margin-bottom: 20px;
-        }
-        .button-container {
-            margin: 20px auto;
-            width: 300px;
-        }
-        p {
-            font-size: 16px;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 12px;
-            color: gray;
-        }
+        body { font-family: Arial, sans-serif; background: #f4f6f8; text-align: center; padding: 20px; }
+        h1 { color: #1E88E5; }
+        section { background: #fff; padding: 20px; margin: 20px auto; max-width: 500px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+        img.logo { width: 150px; margin-bottom: 20px; }
+        input[type=text] { padding: 5px; width: 250px; margin-bottom: 10px; }
+        button { padding: 6px 12px; margin-bottom: 10px; }
+        p.status { font-weight: bold; }
     </style>
 </head>
 <body>
+
     <!-- Logo -->
-    <img src="NXQQuickShop.png" alt="NXQQuickShop Logo" class="logo">
+    <img src="assets/NXQQuickShop.png" alt="NXQQuickShop Logo" class="logo">
 
-    <h1>NXQQuickShop</h1>
-    <p>Professional business software solutions.</p>
+    <h1>NXQQuickShop Programs</h1>
 
-    <h2>Purchase Options</h2>
+    <!-- Subscription Section -->
+    <section id="subscription">
+        <h2>Monthly Subscription - R150</h2>
+        <p>Access all NXQQuickShop modules with a monthly subscription.</p>
 
-    <div class="button-container">
-        <!-- Subscription Button -->
+        <!-- PayFast Button -->
         <form name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post">
             <input required type="hidden" name="cmd" value="_paynow">
-            <input required type="hidden" name="receiver" pattern="[0-9]" value="22909855">
-            <input type="hidden" name="return_url" value="https://nxqsoftware.github.io/programs.html">
-            <input type="hidden" name="cancel_url" value="https://nxqsoftware.github.io/programs.html">
+            <input required type="hidden" name="receiver" value="22909855">
+            <input type="hidden" name="return_url" value="https://yourserver.com/programs.html">
+            <input type="hidden" name="cancel_url" value="https://yourserver.com/programs.html">
             <input required type="hidden" name="amount" value="150">
-            <input required type="hidden" name="item_name" maxlength="255" value="NXQQuickShop Subscription">
-            <input type="hidden" name="item_description" maxlength="255" value="Monthly subscription to NXQQuickShop with all modules enabled.">
-            <input required type="hidden" name="subscription_type" pattern="1" value="1">
+            <input required type="hidden" name="item_name" value="NXQQuickShop Subscription">
+            <input type="hidden" name="item_description" value="Monthly subscription to NXQQuickShop with all modules enabled.">
+            <input required type="hidden" name="subscription_type" value="1">
             <input type="hidden" name="recurring_amount" value="150">
-            <input required type="hidden" name="cycles" pattern="[0-9]" value="0">
-            <input required type="hidden" name="frequency" pattern="[0-9]" value="3">
-            <table>
-                <tr>
-                    <td colspan=2 align=center>
-                        <input type="image" src="https://my.payfast.io/images/buttons/Subscribe/Primary-Small-Subscribe.png" alt="Subscribe" title="Subscribe with Payfast">
-                    </td>
-                </tr>
-            </table>
+            <input required type="hidden" name="cycles" value="0">
+            <input required type="hidden" name="frequency" value="3">
+
+            <input type="image" src="https://my.payfast.io/images/buttons/Subscribe/Primary-Small-Subscribe.png" 
+                   alt="Subscribe" title="Subscribe with Payfast"
+                   onclick="setTimeout(()=>requestLicense('NXQQuickShop Subscription',150), 5000)">
         </form>
 
-        <br>
+        <!-- Automatic License Key -->
+        <p>Your License Key will appear here after payment:</p>
+        <input type="text" id="subscriptionLicenseKey" readonly>
+        <p id="subscriptionStatus" class="status"></p>
+    </section>
 
-        <!-- Full License Button -->
+    <!-- Full License Section -->
+    <section id="fulllicense">
+        <h2>Full License - R4500</h2>
+        <p>One-time purchase with lifetime access to NXQQuickShop.</p>
+
+        <!-- PayFast Button -->
         <form name="PayFastPayNowForm" action="https://payment.payfast.io/eng/process" method="post">
             <input required type="hidden" name="cmd" value="_paynow">
-            <input required type="hidden" name="receiver" pattern="[0-9]" value="22909855">
-            <input type="hidden" name="return_url" value="https://nxqsoftware.github.io/programs.html">
-            <input type="hidden" name="cancel_url" value="https://nxqsoftware.github.io/programs.html">
+            <input required type="hidden" name="receiver" value="22909855">
+            <input type="hidden" name="return_url" value="https://yourserver.com/programs.html">
+            <input type="hidden" name="cancel_url" value="https://yourserver.com/programs.html">
             <input required type="hidden" name="amount" value="4500">
-            <input required type="hidden" name="item_name" maxlength="255" value="NXQQuickShop Full License">
-            <input type="hidden" name="item_description" maxlength="255" value="One-time purchase of NXQQuickShop full program with lifetime access.">
-            <table>
-                <tr>
-                    <td colspan=2 align=center>
-                        <input type="image" src="https://my.payfast.io/images/buttons/BuyNow/Primary-Small-BuyNow.png" alt="Buy Now" title="Buy Now with Payfast">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+            <input type="hidden" name="item_name" value="NXQQuickShop Full License">
+            <input type="hidden" name="item_description" value="One-time purchase of NXQQuickShop full program with lifetime access.">
 
-    <div class="footer">
-        Developed by NXQSoftware 2026 | Version 1.0
-    </div>
+            <input type="image" src="https://my.payfast.io/images/buttons/BuyNow/Primary-Small-BuyNow.png" 
+                   alt="Buy Now" title="Buy Now with Payfast"
+                   onclick="setTimeout(()=>requestLicense('NXQQuickShop Full License',4500), 5000)">
+        </form>
+
+        <!-- Automatic License Key -->
+        <p>Your License Key will appear here after payment:</p>
+        <input type="text" id="fullLicenseKey" readonly>
+        <p id="fullStatus" class="status"></p>
+    </section>
+
+    <!-- License Generator Script -->
+    <script>
+    async function requestLicense(itemName, amount) {
+        let licenseField, statusElem;
+
+        if(itemName.includes('Subscription')){
+            licenseField = document.getElementById('subscriptionLicenseKey');
+            statusElem = document.getElementById('subscriptionStatus');
+        } else {
+            licenseField = document.getElementById('fullLicenseKey');
+            statusElem = document.getElementById('fullStatus');
+        }
+
+        statusElem.style.color = 'blue';
+        statusElem.innerText = "Requesting License Key...";
+
+        try {
+            const response = await fetch('https://yourserver.com/license-generator.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `item_name=${encodeURIComponent(itemName)}&amount=${encodeURIComponent(amount)}`
+            });
+
+            const result = await response.json();
+
+            if(result.success){
+                licenseField.value = result.licenseKey;
+                statusElem.style.color = 'green';
+                statusElem.innerText = "License Key Generated Successfully!";
+            } else {
+                statusElem.style.color = 'red';
+                statusElem.innerText = "Error generating license key: " + result.message;
+            }
+        } catch (err) {
+            statusElem.style.color = 'red';
+            statusElem.innerText = "Error connecting to server.";
+        }
+    }
+    </script>
+
 </body>
 </html>
